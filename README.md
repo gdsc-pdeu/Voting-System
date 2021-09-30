@@ -25,15 +25,20 @@ Online Voting System
 <code><img height="50" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/php/php.png"></code>
 <code><img height="50" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png"></code>
 
-
 ## Features
   * Responsive.
   * Live result Show
   * Maximum Action taken to reduce the spamming
 
-## Demo
-  **Link** : <a href="https://encoderegistration.000webhostapp.com/">View Demo</a> <br/>
-  
+## Scope of Improvement
+* Implementation of Pulling feature. So, user's doesn't have to reload the page for updates.
+* Ideas to stop the spaming.
+
+## Installation:
+* Requirements: PHP, MYSQL should be installed in the system (XAMPP)
+* Clone this repo and add this in your htdocs folder.
+* Make database with name of live_voting and import the sql file in it.
+
 ## Author:
   <a href="https://www.instagram.com/jaypatel98196/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="https://www.instagram.com/jaypatel98196/" height="30" width="30" /></a>
   <a href="https://linkedin.com/in/jay-patel-b0b30b197/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="https://www.linkedin.com/in/jay-patel-b0b30b197/" height="30" width="30" /></a>
