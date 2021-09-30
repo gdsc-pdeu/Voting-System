@@ -1,7 +1,12 @@
 <?php
 	session_start();
 	include 'pdo.php';
-//WmkQqtJd92m504z>	
+	use PHPMailer\PHPMailer\PHPMailer; 
+	use PHPMailer\PHPMailer\Exception; 
+	
+	require './vendor/phpmailer/phpmailer/src/Exception.php';
+	require './vendor/phpmailer/phpmailer/src/PHPMailer.php';
+	require './vendor/phpmailer/phpmailer/src/SMTP.php';
 	
 	$email = '';
 	if(isset($_POST['submit']) &&(isset($_SESSION['captcha']))){
@@ -39,8 +44,44 @@
 				
 				$link = 'votingverify.php?key='.$random;
 				$decp = "Hello User Thanks To taking part In This event Please Click on the below link to succesfully verification and completion of the voting process.";
-				//mail($email,"Email Verification",$msg);
-				echo $link;
+
+				$mail = new PHPMailer; 
+ 
+				$mail->isSMTP();                      // Set mailer to use SMTP 
+				$mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
+				$mail->SMTPAuth = true;               // Enable SMTP authentication 
+				$mail->Username = 'xxxx@gmail.com';   // Your Email
+				$mail->Password = 'xxxx';   //  password 
+				$mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
+				$mail->Port = 587;                    // TCP port to connect to 
+				
+				// Sender info 
+				$mail->setFrom('liveVoting@opensource.com', 'liveVoting'); 
+				$mail->addReplyTo('reply@opensource.com', 'liveVoting'); 
+				
+				// Add a recipient 
+				$mail->addAddress($email); 
+				
+				//$mail->addCC('cc@example.com'); 
+				//$mail->addBCC('bcc@example.com'); 
+				
+				// Set email format to HTML 
+				$mail->isHTML(true); 
+				
+				// Mail subject 
+				$mail->Subject = 'Voting Verfication Mail'; 
+				
+				// Mail body content 
+				$bodyContent .= '<p>Hello User Thanks To taking part In This event Please Click on the below link to succesfully verification and completion of the voting process.</b></p><a href="'.$link.'">'.$link.'</a>'; 
+				$mail->Body    = $bodyContent; 
+				
+				// Send email 
+				if(!$mail->send()) { 
+					echo $link;
+				} else { 
+
+				}
+				header('Location: index.php?success=Mail Sent to your email Id please verify!!');
 			}
 		}
 	}
@@ -48,31 +89,4 @@
 		header('Location: index.php');
 	}
 
-
-
-	$mobilenum = "9824864702";
-	$msg = "Hello JAY";
-	
-
-	// Authorisation details.
-	$username = "jaypatel32157@gmail.com";
-	$hash = "103a86a12b03ba8eef1bf75e1bca840b2be2d4c7bde356e30b33652e50976234";
-
-	// Config variables. Consult http://api.textlocal.in/docs for more info.
-	$test = "0";
-
-	// Data for text message. This is the text message data.
-	$sender = "TXTLCL"; // This is who the message appears to be from.
-	$numbers = $mobilenum; // A single number or a comma-seperated list of numbers
-	$message = "This is a test message from the PHP API script.";
-	// 612 chars or less
-	// A single number or a comma-seperated list of numbers
-	$message = urlencode($message);
-	$data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$numbers."&test=".$test;
-	$ch = curl_init('http://api.textlocal.in/send/?');
-	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$result = curl_exec($ch); // This is the result from the API
-	curl_close($ch);
 ?>
