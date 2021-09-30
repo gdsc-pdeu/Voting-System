@@ -39,7 +39,7 @@ Online Voting System
 * Clone this repo and add this in your htdocs folder.
 * Make database with name of live_voting and import the sql file in it.
 * run composer install in the cmd (composer is required)
-* add your email address and password to get mail through php mailer (https://www.codexworld.com/how-to-send-email-from-localhost-in-php/#:~:text=Send%20Email%20from%20Localhost%20with%20PHP%201%20Include,the%20email%20%28%20%24mail-%3EBody%20%29.%20More%20items...%20)
+* add your email address and password to get mail through php mailer ([To get Guidance](https://www.codexworld.com/how-to-send-email-from-localhost-in-php/#:~:text=Send%20Email%20from%20Localhost%20with%20PHP%201%20Include,the%20email%20%28%20%24mail-%3EBody%20%29.%20More%20items...%20))
 
 ## Author:
   <a href="https://www.instagram.com/jaypatel98196/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="https://www.instagram.com/jaypatel98196/" height="30" width="30" /></a>
